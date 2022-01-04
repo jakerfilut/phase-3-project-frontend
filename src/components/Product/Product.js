@@ -10,15 +10,9 @@ function Product() {
     fetch("http://localhost:9292/products")
       .then((res) => res.json())
       .then(setProducts);
-  }, [setProducts]);
-  console.log(products);
-
+  }, []);
   const addToCart = (prod) => {
     console.log(prod.id);
-    // console.log(prod.inventory);
-
-    // let newInv = prod.inventory - 1;
-    console.log(prod.inventory);
     fetch(`http://localhost:9292/products/${prod.id}`, {
       method: "PATCH",
       headers: {
@@ -26,9 +20,19 @@ function Product() {
         Accept: "application/json",
       },
       body: JSON.stringify({ ...prod, inventory: (prod.inventory -= 1) }),
-    });
-    // .then((r) => r.json())
-    // .then(setProducts);
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(
+          products.map((p) => {
+            if (p.id === data.id) {
+              return data;
+            } else {
+              return p;
+            }
+          })
+        );
+      });
   };
 
   const mapProducts = products.map((prod) => {
