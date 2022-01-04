@@ -30,7 +30,6 @@ function Department() {
     { cat: "Outdoor living", img: MdOutlineOutdoorGrill },
     { cat: "Paint", img: AiFillFormatPainter },
     { cat: "Plumbing", img: MdPlumbing },
-    // { cat: "Lawn and Garden", img: GiGardeningShears },
     { cat: "Heating and cooling", img: GiHeatHaze },
     { cat: "Kitchen", img: GiKitchenTap },
   ];
