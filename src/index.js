@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 // import 'semantic-ui-css/semantic.min.css'
 
-import { BrowserRouter, Route } from "react-router-dom"
+import { BrowserRouter, Route } from "react-router-dom";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -13,10 +13,8 @@ ReactDOM.render(
       <App />
     </Route>
   </BrowserRouter>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
-
 
 // ReactDOM.render(
 //   <React.StrictMode>
