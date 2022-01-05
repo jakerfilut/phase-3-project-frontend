@@ -3,6 +3,7 @@ import Navbar from "./components/NavBar/Navbar";
 import Product from "./components/Product/Product";
 import Slideshow from "./components/Slideshow/Slideshow";
 import Department from "./components/Department/Department";
+import Checkout from "./components/CheckOut/Checkout";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Slideshow />
       <Department />
       <Product />
+      <Checkout />
     </div>
   );
 }
