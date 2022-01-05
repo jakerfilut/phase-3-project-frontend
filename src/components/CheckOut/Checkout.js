@@ -1,16 +1,15 @@
 import { React, useState, useEffect } from "react";
 
-function Checkout() {
+function Checkout({ setItems }) {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:9292/order_items")
       .then((res) => res.json())
       .then(setCart);
-  }, [setCart]);
+  }, []);
 
   const mapCart = cart.map((item) => {
-    console.log(item);
     return (
       <p>
         {" "}
@@ -28,7 +27,8 @@ function Checkout() {
       .then((res) => res.json())
       .then((data) => {
         setCart(cart.filter((item) => item.id !== item));
-        console.log(data);
+        //This set cart refreshed pages so Delete works
+        setItems(cart.length - 1);
       });
   };
 
