@@ -3,11 +3,12 @@ import { React, useState, useEffect } from "react";
 
 const api_prod = "http://localhost:9292/products";
 
-function Product({ products, setProducts }) {
+function Product() {
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch("http://localhost:9292/products")
       .then((res) => res.json())
-      .then(setProducts);
+      .then((data) => setProducts(data));
   }, []);
   const addToCart = (prod) => {
     fetch(`http://localhost:9292/products/${prod.id}`, {
@@ -35,11 +36,10 @@ function Product({ products, setProducts }) {
   const mapProducts = products.map((prod) => {
     // let img_url = prod.img_url;
     return (
-
       <div>
-
-        {/* <img src={prod.img_url} alt="image" height="100" widtch="100" /> */}
-        {prod.name} {prod.inventory}
+        <img src={prod.img_url} alt="image" height="100" widtch="100" />
+        {/* {prod.name}  */}
+        {prod.inventory} {prod.description}
         <button onClick={() => addToCart(prod)}>Add To Cart</button>
       </div>
     );
