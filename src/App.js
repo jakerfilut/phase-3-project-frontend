@@ -3,7 +3,7 @@ import { react, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/NavBar/Navbar";
 import Product from "./components/Product/Product";
-import ProductDetail from "./components/ProductDetail/ProductDetail";
+import ProductDetail from "./components/Product/ProductDetail";
 import Slideshow from "./components/Slideshow/Slideshow";
 import Department from "./components/Department/Department";
 import Checkout from "./components/CheckOut/Checkout";
