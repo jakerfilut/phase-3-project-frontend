@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { GiConsoleController } from "react-icons/gi";
+// import { GiConsoleController } from "react-icons/gi";
 
 const api_prod = "http://localhost:9292/products";
 
@@ -12,7 +12,6 @@ function Product() {
       .then(setProducts);
   }, []);
   const addToCart = (prod) => {
-    console.log(prod.id);
     fetch(`http://localhost:9292/products/${prod.id}`, {
       method: "PATCH",
       headers: {
