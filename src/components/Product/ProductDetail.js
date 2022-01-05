@@ -20,9 +20,30 @@ function ProductDetail() {
 
 
   return (
-    <div >
+    <section>
+      <div>
+        <div>
+          <img src={img_url} alt={name} />
+        </div>
+        <div>
+          <h2>{name}</h2>
+          <p>
+            Department: {department}
+          </p>
+          <div>
+            <p>${unit_price}</p>
+            <p>We have {inventory} units in stock</p>
+            <div >
+              <p>Description:</p>
+              <p>{description}</p>
+            </div>
+            <br></br>
 
-    </div>
+            <Link to="/products">Go Back!</Link>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

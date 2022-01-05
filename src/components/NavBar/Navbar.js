@@ -3,9 +3,9 @@ import "./Navbar.css";
 import { IconContext } from "react-icons/lib";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaTools } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ items }) {
   return (
     <IconContext.Provider value={{ color: "#fff", size: 50 }}>
       <div className="navbar">
@@ -27,7 +27,7 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <Link to="/cart" className="nav-links">
-                Cart | 0 items <AiOutlineShoppingCart size={30} />
+                Cart <AiOutlineShoppingCart size={30} />
               </Link>
             </li>
           </ul>

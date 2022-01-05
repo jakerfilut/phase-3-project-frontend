@@ -1,16 +1,30 @@
 import { React, useState, useEffect } from "react";
 
-function Checkout({ products }) {
+function Checkout({}) {
   const [cart, setCart] = useState([]);
+  const [deletes, setDeletes] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:9292/order_items")
       .then((res) => res.json())
       .then(setCart);
-  }, [products, cart]);
+  }, [deletes]);
+  console.log(cart.length);
+  const handleDelete = (item) => {
+    fetch(`http://localhost:9292/order_items/${item.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setCart(cart.filter((item) => item.id !== data.id));
+        setDeletes(!deletes);
+      });
+  };
 
   const mapCart = cart.map((item) => {
-    console.log(item);
     return (
       <p>
         {" "}
@@ -20,19 +34,12 @@ function Checkout({ products }) {
     );
   });
 
-  const handleDelete = (item) => {
-    fetch(`http://localhost:9292/order_items/${item.id}`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setCart(cart.filter((item) => item.id !== item));
-        console.log(data);
-      });
-  };
-
-  return <div>{mapCart}</div>;
+  return (
+    <div>
+      You Have {cart.length} Items In Your Cart
+      <div>{mapCart}</div>
+    </div>
+  );
 }
 
 export default Checkout;
