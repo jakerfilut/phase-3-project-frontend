@@ -38,7 +38,7 @@ function ProductDetail() {
               <p>{description}</p>
             </div>
             <br></br>
-            
+
             <Link to="/products">Go Back!</Link>
           </div>
         </div>
