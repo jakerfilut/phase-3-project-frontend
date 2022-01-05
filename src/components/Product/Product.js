@@ -5,41 +5,41 @@ import ProductCard from "./ProductCard";
 
 const api_prod = "http://localhost:9292/products";
 
-function Product({ setItems, items }) {
-  const [products, setProducts] = useState([]);
+function Product({ products, setProducts, addToCart }) {
+  // const [products, setProducts] = useState([]);
 
 
-  useEffect(() => {
-    fetch("http://localhost:9292/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
-  const addToCart = (prod) => {
-    fetch(`http://localhost:9292/products/${prod.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({ ...prod, inventory: (prod.inventory -= 1) }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(
-          products.map((p) => {
-            if (p.id === data.id) {
-              return data;
-            } else {
-              return p;
-            }
-          })
-        );
-      });
-  };
+  // useEffect(() => {
+  //   fetch("http://localhost:9292/products")
+  //     .then((res) => res.json())
+  //     .then((data) => setProducts(data));
+  // }, []);
+  // const addToCart = (prod) => {
+  //   fetch(`http://localhost:9292/products/${prod.id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json",
+  //     },
+  //     body: JSON.stringify({ ...prod, inventory: (prod.inventory -= 1) }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setProducts(
+  //         products.map((p) => {
+  //           if (p.id === data.id) {
+  //             return data;
+  //           } else {
+  //             return p;
+  //           }
+  //         })
+  //       );
+  //     });
+  // };
   // const mapProducts = products.map((prod) => {
     return (
 
-      <Card.Group itemsPerRow={6}>
+      <Card.Group itemsPerRow={2}>
         {products.map((product) => (
           <ProductCard 
             key={product.id}
