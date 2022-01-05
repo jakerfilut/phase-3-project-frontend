@@ -1,11 +1,13 @@
 import { React, useState, useEffect } from "react";
-
+import { Card } from 'semantic-ui-react';
+import ProductCard from "./ProductCard";
 // import { GiConsoleController } from "react-icons/gi";
 
 const api_prod = "http://localhost:9292/products";
 
 function Product({ setItems, items }) {
   const [products, setProducts] = useState([]);
+
 
   useEffect(() => {
     fetch("http://localhost:9292/products")
@@ -34,19 +36,34 @@ function Product({ setItems, items }) {
         );
       });
   };
-  const mapProducts = products.map((prod) => {
+  // const mapProducts = products.map((prod) => {
     return (
-      <div key={Math.random()}>
-        <img src={prod.img_url} alt="image" height="100" widtch="100" />
-        {prod.name}
-        {prod.inventory}
-        {/* {prod.description} */}
-        <button onClick={() => addToCart(prod)}>Add To Cart</button>
-      </div>
-    );
-  });
 
-  return <div>{mapProducts}</div>;
+      <Card.Group itemsPerRow={6}>
+        {products.map((product) => (
+          <ProductCard 
+            key={product.id}
+            product={product}
+            addToCart={addToCart}
+          />
+          
+        ))}
+        
+      </Card.Group>
+
+
+    //   <div key={Math.random()}>
+    //     <img src={prod.img_url} alt="image" height="100" widtch="100" />
+    //     {prod.name}
+    //     {prod.inventory}
+    //     {/* {prod.description} */}
+    //     <button onClick={() => addToCart(prod)}>Add To Cart</button>
+    //   </div>
+    // );
+  // });
+
+  // return <div>{mapProducts}</div>;
+    )
 }
 
 export default Product;
