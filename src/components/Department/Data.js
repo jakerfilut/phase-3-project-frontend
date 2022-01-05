@@ -1,0 +1,15 @@
+const depart = [
+  { cat: "Appliances", img: "RiFridgeFill" },
+  { cat: "Bath & faucets", img: "FaBath" },
+  { cat: "Blinds & Window", img: "GiWindow" },
+  { cat: "Building Material", img: "GiWoodBeam" },
+  { cat: "Electrical", img: "MdElectricalServices" },
+  { cat: "Tools", img: "FaToolbox" },
+  { cat: "Lighting & Ceiling fans", img: "GiLightBulb" },
+  { cat: "Outdoor living", img: "MdOutlineOutdoorGrill" },
+  { cat: "Paint", img: "AiFillFormatPainter" },
+  { cat: "Plumbing", img: "MdPlumbing" },
+  { cat: "Lawn and Garden", img: "GiGardeningShears" },
+  { cat: "Heating and cooling", img: "GiHeatHaze" },
+  { cat: "Kitchen", img: "GiKitchenTap" },
+];
