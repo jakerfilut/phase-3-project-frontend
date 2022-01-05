@@ -3,9 +3,7 @@ import { React, useState, useEffect } from "react";
 
 const api_prod = "http://localhost:9292/products";
 
-function Product() {
-  const [products, setProducts] = useState([]);
-
+function Product({ products, setProducts }) {
   useEffect(() => {
     fetch("http://localhost:9292/products")
       .then((res) => res.json())
@@ -35,11 +33,15 @@ function Product() {
   };
 
   const mapProducts = products.map((prod) => {
+    // let img_url = prod.img_url;
     return (
-      <p>
+
+      <div>
+
+        {/* <img src={prod.img_url} alt="image" height="100" widtch="100" /> */}
         {prod.name} {prod.inventory}
         <button onClick={() => addToCart(prod)}>Add To Cart</button>
-      </p>
+      </div>
     );
   });
 
