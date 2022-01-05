@@ -9,11 +9,9 @@ import Department from "./components/Department/Department";
 import Checkout from "./components/CheckOut/Checkout";
 
 function App() {
-  const [items, setItems] = useState(0);
-
   return (
     <div className="App">
-      <Navbar items={items} />
+      <Navbar />
       <Slideshow />
       <Department />
 
@@ -21,10 +19,7 @@ function App() {
         <Route path="/products/:id" component={() => <ProductDetail />} />
 
         <Route path="/products" component={() => <Product />} />
-        <Route
-          path="/cart"
-          component={() => <Checkout setItems={setItems} />}
-        />
+        <Route path="/cart" component={() => <Checkout />} />
       </Switch>
     </div>
   );

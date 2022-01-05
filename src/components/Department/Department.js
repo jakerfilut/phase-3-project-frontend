@@ -37,7 +37,7 @@ function Department() {
   const departmentDisplay = depart.map((dep, idx) => {
     const Icon = depart[idx].img;
     return (
-      <span className="department-container-card">
+      <span key={Math.random()} className="department-container-card">
         <div className="department-container-cardInfo">
           <div className="icon">
             <Icon />

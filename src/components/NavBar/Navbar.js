@@ -27,8 +27,7 @@ function Navbar({ items }) {
             </li>
             <li className="nav-item">
               <Link to="/cart" className="nav-links">
-                Cart |{items}
-                items <AiOutlineShoppingCart size={30} />
+                Cart <AiOutlineShoppingCart size={30} />
               </Link>
             </li>
           </ul>
