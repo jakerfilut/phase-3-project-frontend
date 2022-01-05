@@ -7,6 +7,7 @@ import ProductDetail from "./components/Product/ProductDetail";
 import Slideshow from "./components/Slideshow/Slideshow";
 import Department from "./components/Department/Department";
 import Checkout from "./components/CheckOut/Checkout";
+import Create from "./components/Create/Create";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Navbar />
       <Slideshow />
       <Department />
+      <Create />
 
       <Switch>
         <Route path="/products/:id" component={() => <ProductDetail />} />
