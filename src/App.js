@@ -9,32 +9,21 @@ import Department from "./components/Department/Department";
 import Checkout from "./components/CheckOut/Checkout";
 
 function App() {
-  // const [products, setProducts] = useState([]);
+  const [items, setItems] = useState(0);
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar items={items} />
       <Slideshow />
       <Department />
 
       <Switch>
         <Route path="/products/:id" component={() => <ProductDetail />} />
 
-        <Route
-          path="/products"
-          component={() => (
-            <Product
-            // products={products} setProducts={setProducts}
-            />
-          )}
-        />
+        <Route path="/products" component={() => <Product />} />
         <Route
           path="/cart"
-          component={() => (
-            <Checkout
-            // products={products}
-            />
-          )}
+          component={() => <Checkout setItems={setItems} />}
         />
       </Switch>
     </div>
