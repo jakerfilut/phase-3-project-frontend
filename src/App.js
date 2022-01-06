@@ -12,11 +12,30 @@ import Create from "./components/Create/Create";
 import Orders from "./components/CheckOut/Orders";
 
 function App() {
+  const [cart, setCart] = useState([]);
+  const [deletes, setDeletes] = useState(false);
+  const [updateCart, setUpdateCart] = useState(false);
+  useEffect(() => {
+    fetch("http://localhost:9292/order_items")
+      .then((res) => res.json())
+      .then(setCart);
+  }, [deletes, updateCart]);
+  console.log(cart.length);
+  const handleDelete = (item) => {
+    fetch(`http://localhost:9292/order_items/${item.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setCart(cart.filter((item) => item.id !== data.id));
+        setDeletes(!deletes);
+      });
+  };
 
   const [newProd, setNewProd] = useState({});
-
-  const [products, setProducts] = useState([]);
-
   function handleNewProduct(formData) {
     setNewProd(formData);
     const newProductArray = [...products, newProd];
@@ -39,12 +58,12 @@ function App() {
     }
   }, [newProd]);
 
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch("http://localhost:9292/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [newProd]);
-
 
   const addToCart = (prod) => {
     fetch(`http://localhost:9292/products/${prod.id}`, {
@@ -66,28 +85,36 @@ function App() {
             }
           })
         );
+        setUpdateCart(!updateCart);
       });
   };
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar cart={cart} />
       <Slideshow />
 
-
-
       <Switch>
-        <Route path="/products/:id" component={() => <ProductDetail addToCart={addToCart} />} />
+        <Route
+          path="/products/:id"
+          component={() => <ProductDetail addToCart={addToCart} />}
+        />
 
+        <Route
+          path="/products"
+          component={() => (
+            <Product addToCart={addToCart} products={products} />
+          )}
+        />
+        <Route
+          path="/create"
+          component={() => <Create handleNewProduct={handleNewProduct} />}
+        />
 
-        <Route path="/products" component={() => <Product 
-          addToCart={addToCart}
-          products={products}
-          setProducts={setProducts}
-        />} />
-        <Route path='/create' component={() => <Create handleNewProduct={handleNewProduct} />} />
-
-        <Route path="/cart" component={() => <Checkout />} />
+        <Route
+          path="/cart"
+          component={() => <Checkout cart={cart} handleDelete={handleDelete} />}
+        />
         <Route path="/orders" component={() => <Orders />} />
         <Route path="/home" component={() => <Department />} />
       </Switch>
