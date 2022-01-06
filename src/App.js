@@ -90,17 +90,14 @@ function App() {
 
   const [deptFilter, setDeptFilter] = useState("");
 
- const productsToDisplay = products
-    .filter((product) => {
-      return deptFilter === "" || product.department === deptFilter;
-    })
-
+  const productsToDisplay = products.filter((product) => {
+    return deptFilter === "" || product.department === deptFilter;
+  });
 
   return (
     <div className="App">
       <Navbar cart={cart} />
       <Slideshow />
-      
 
       <Switch>
         <Route
@@ -111,7 +108,12 @@ function App() {
         <Route
           path="/products"
           component={() => (
-            <Product addToCart={addToCart} products={products} productsToDisplay={productsToDisplay} setDeptFilter={setDeptFilter} />
+            <Product
+              addToCart={addToCart}
+              products={products}
+              productsToDisplay={productsToDisplay}
+              setDeptFilter={setDeptFilter}
+            />
           )}
         />
         <Route
@@ -124,7 +126,10 @@ function App() {
           component={() => <Checkout cart={cart} handleDelete={handleDelete} />}
         />
         <Route path="/orders" component={() => <Orders />} />
-        <Route path="/home" component={() => <Department setDeptFilter={setDeptFilter} />} />
+        <Route
+          path="/home"
+          component={() => <Department setDeptFilter={setDeptFilter} />}
+        />
       </Switch>
     </div>
   );
