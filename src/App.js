@@ -20,7 +20,7 @@ function App() {
       .then((res) => res.json())
       .then(setCart);
   }, [deletes, updateCart]);
-  console.log(cart.length);
+
   const handleDelete = (item) => {
     fetch(`http://localhost:9292/order_items/${item.id}`, {
       method: "DELETE",
@@ -44,7 +44,6 @@ function App() {
 
   useEffect(() => {
     if (newProd.name == null) {
-      console.log("I did not run");
     } else {
       fetch("http://localhost:9292/products", {
         method: "POST",

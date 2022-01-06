@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
-import { Card } from "semantic-ui-react";
 import ProductCard from "./ProductCard";
+import "./Product.css";
 
 
 function Product({ products, addToCart, productsToDisplay }) {
@@ -8,16 +8,14 @@ function Product({ products, addToCart, productsToDisplay }) {
 
 
   return (
-    <div>
-      <Card.Group>
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            addToCart={addToCart}
-          />
-        ))}
-      </Card.Group>
+    <div id="product" className="product__section">
+      <div className="product__wrapper">
+        <div className="product__container">
+          {products.map((prod) => (
+            <ProductCard key={prod.id} prod={prod} addToCart={addToCart} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

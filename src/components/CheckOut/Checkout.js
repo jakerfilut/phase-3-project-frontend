@@ -1,9 +1,12 @@
+
 import { React, useEffect } from "react";
 import CartCard from './CartCard'
 import { Link } from 'react-router-dom';
 
 
+
 function Checkout({ cart, handleDelete }) {
+
 
 function makePurchase() {
  
@@ -19,12 +22,12 @@ function makePurchase() {
     }
 }
 
+
   return (
-
-
     <div>
-      <h1 className='cart-header'>Shopping Cart</h1>
+      <h1 className="cart-header">Shopping Cart</h1>
       {cart.map((item) => (
+
             <div className='cart-items'>
               Quantity: {item.quantity} | {item.product.name}
               <button onClick={() => handleDelete(item)}>Remove From Cart</button>
@@ -33,8 +36,8 @@ function makePurchase() {
         <Link to="/orders">
           <button onClick={makePurchase}>Make Purchase</button>
         </Link>
-    </div>
 
+    </div>
   );
 }
 
