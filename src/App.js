@@ -9,18 +9,17 @@ import Slideshow from "./components/Slideshow/Slideshow";
 import Department from "./components/Department/Department";
 import Checkout from "./components/CheckOut/Checkout";
 import Create from "./components/Create/Create";
+import Orders from "./components/CheckOut/Orders";
 
 
 function App() {
 
-  const [newProduct, setNewProduct] = useState([]);
 
-  // function handleNewProduct() {
-  //   const newProductArray = [...products, newProduct];
-  //   setProducts(newProductArray);
-  //   console.log(newProductArray);
-  // }
-
+  function handleNewProduct(formData) {
+    const newProductArray = [...products, formData];
+    setProducts(newProductArray);
+    console.log(newProductArray);
+  }
 
 
   const [products, setProducts] = useState([]);
@@ -31,6 +30,7 @@ function App() {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
+  
   const addToCart = (prod) => {
     fetch(`http://localhost:9292/products/${prod.id}`, {
       method: "PATCH",
@@ -61,8 +61,8 @@ function App() {
       <Slideshow />
 
 
-      <Department />
-      <Create handleFormData={handleFormData} />
+   
+      {/* <Create /> */}
 
 
 
@@ -75,8 +75,9 @@ function App() {
           products={products}
           setProducts={setProducts}
         />} />
-
+        <Route path='/create' component={() => <Create handleNewProduct={handleNewProduct} />} />
         <Route path="/cart" component={() => <Checkout />} />
+        <Route path="/orders" component={() => <Orders />} />
         <Route path="/home" component={() => <Department />} />
       </Switch>
     </div>

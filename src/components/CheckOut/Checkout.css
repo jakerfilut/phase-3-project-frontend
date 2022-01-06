@@ -1,0 +1,16 @@
+.order-container {
+    margin: 50px;
+    text-align: center;
+}
+
+.card-container {
+    margin: 20px;
+}
+
+.order-header {
+    border-style: solid;
+}
+
+.card {
+    padding: 15px;
+}

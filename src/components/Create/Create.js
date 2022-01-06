@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function CreateProd({ handleFormData }) {
+function CreateProd({ handleNewProduct }) {
   const [name, setName] = useState("");
   const [depart, setDepart] = useState("");
   const [desc, setDesc] = useState("");
@@ -18,7 +18,9 @@ function CreateProd({ handleFormData }) {
       img,
       inv,
     };
-    handleFormData(formData);
+
+    handleNewProduct(formData);
+    
   }
   return (
     <section className="container">
