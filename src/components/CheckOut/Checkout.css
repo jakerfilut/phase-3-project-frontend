@@ -14,3 +14,14 @@
 .card {
     padding: 15px;
 }
+
+.cart-header {
+    margin: 50px;
+    text-align: center;
+    padding: 25px;
+}
+
+.cart-items {
+    margin: 20px;
+    text-align: center;
+}
