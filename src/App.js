@@ -10,17 +10,28 @@ import Checkout from "./components/CheckOut/Checkout";
 import Create from "./components/Create/Create";
 
 function App() {
+  const [newProduct, setNewProduct] = useState([]);
+
+  // function handleNewProduct() {
+  //   const newProductArray = [...products, newProduct];
+  //   setProducts(newProductArray);
+  //   console.log(newProductArray);
+  // }
+
   return (
     <div className="App">
       <Navbar />
       <Slideshow />
       <Department />
-      <Create />
+      <Create handleFormData={handleFormData} />
 
       <Switch>
         <Route path="/products/:id" component={() => <ProductDetail />} />
 
-        <Route path="/products" component={() => <Product />} />
+        <Route
+          path="/products"
+          component={() => <Product newProduct={newProduct} />}
+        />
         <Route path="/cart" component={() => <Checkout />} />
       </Switch>
     </div>
