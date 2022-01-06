@@ -18,7 +18,9 @@ function CreateProd({ handleNewProduct }) {
       img_url,
       inventory,
     };
+
     handleNewProduct(formData);
+
   }
   return (
     <section className="container">

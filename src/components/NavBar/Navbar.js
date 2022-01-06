@@ -26,8 +26,18 @@ function Navbar({ items }) {
               </Link>
             </li>
             <li className="nav-item">
+              <Link className="nav-links" to="/create">
+                Add New Product
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link to="/cart" className="nav-links">
                 Cart <AiOutlineShoppingCart size={30} />
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-links" to="/orders">
+                Order History
               </Link>
             </li>
           </ul>
