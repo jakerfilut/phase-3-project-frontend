@@ -1,94 +1,108 @@
 import React, { useState } from "react";
-function BookForm({ handleAddBook }) {
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
-  const [category, setCategory] = useState("");
-  const [image, setImage] = useState("");
+
+function CreateProd({ handleFormData }) {
+  const [name, setName] = useState("");
+  const [depart, setDepart] = useState("");
+  const [desc, setDesc] = useState("");
+  const [price, setPrice] = useState("");
+  const [img, setImg] = useState("");
+  const [inv, setInv] = useState("");
+
   function handleSubmit(e) {
     e.preventDefault();
     const formData = {
-      title,
-      author,
-      category,
-      image,
+      name,
+      depart,
+      desc,
+      price,
+      img,
+      inv,
     };
-    fetch("http://localhost:3000/books", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((r) => r.json())
-      .then((newBook) => {
-        handleAddBook(newBook);
-      });
+    handleFormData(formData);
   }
   return (
-    <section class="container">
-      <form class="ui form" onSubmit={handleSubmit}>
-        <h4 id="formH" class="ui dividing header">
-          Add a New Book
+    <section className="container">
+      <form className="ui form" onSubmit={handleSubmit}>
+        <h4 id="formH" className="ui dividing header">
+          Add a New Proudct
         </h4>
-        <label htmlFor="title">Title</label>
+        <label htmlFor="name">Name</label>
         <input
           required
-          placeholder="Insert Title"
+          placeholder="Product's Name"
           type="text"
-          title="title"
-          value={title}
-          onChange={(event) => setTitle(event.target.value)}
+          title="name"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
         />
-        <label htmlFor="author">Author</label>
-        <input
-          required
-          placeholder="Insert Author"
-          type="text"
-          value={author}
-          onChange={(event) => setAuthor(event.target.value)}
-        />
-        <label htmlFor="category">Category</label>
+        <label htmlFor="department">Department</label>
         <select
-          class="ui fluid dropdown"
+          className="ui fluid dropdown"
           required
-          name="filter"
-          placeholder="select a category"
-          value={category}
-          onChange={(event) => setCategory(event.target.value)}
+          name="department"
+          placeholder="Select Department"
+          value={depart}
+          onChange={(event) => setDepart(event.target.value)}
         >
           <option value="" disabled selected hidden>
             Please Choose...
           </option>
-          <option value="Phonology & Articulation">
-            Phonology & Articulation
+          <option value="Appliances">Appliances</option>
+          <option value="Bath & Faucets">Bath & Faucets</option>
+          <option value="Blinds & Window">Blinds & Window</option>
+          <option value="Building Material">Building Material</option>
+          <option value="Electrical">Electrical</option>
+          <option value="Heating & Cooling">Heating & Cooling</option>
+          <option value="Kitchen">Kitchen</option>
+          <option value="Lighting & Ceiling Fans">
+            Lighting & Ceiling Fans
           </option>
-          <option value="Concepts & Prepositions">
-            Concepts & Prepositions
-          </option>
-          <option value="Prediction & Inference">Prediction & Inference</option>
-          <option value="Phonological Awareness & Literacy Development">
-            Phonological Awareness & Literacy Development
-          </option>
-          <option value="Diversity & Inclusion">Diversity & Inclusion</option>
-          <option value="Preschool Language">Preschool Language</option>
-          <option value="Social Emotional Learning">
-            Social Emotional Learning
-          </option>
-          <option value="Special Occasions">Special Occasions</option>
-          <option value="Social Justice">Social Justice</option>
-          <option value="none">none</option>
+          <option value="Outdoor Living">Outdoor Living</option>
+          <option value="Paint">Paint</option>
+          <option value="Plumbing">Plumbing</option>
+          <option value="Tools">Tools</option>
         </select>
+        <label htmlFor="department">Description</label>
+        <textarea
+          rows="8"
+          cols="50"
+          required
+          placeholder="Product's Description"
+          type="text"
+          value={desc}
+          onChange={(event) => setDesc(event.target.value)}
+        />
+
+        <label htmlFor="price">Product's Price</label>
+        <input
+          // required
+          placeholder="Product's Price"
+          type="number"
+          value={price}
+          onChange={(event) => setPrice(event.target.value)}
+        />
+
         <label htmlFor="image">Image</label>
         <input
           // required
           placeholder="Image URL"
           type="text"
-          value={image}
-          onChange={(event) => setImage(event.target.value)}
+          value={img}
+          onChange={(event) => setImg(event.target.value)}
         />
-        <button>Add Book</button>
+
+        <label htmlFor="price">Inventory</label>
+        <input
+          // required
+          placeholder="How many in Stock?"
+          type="number"
+          value={inv}
+          onChange={(event) => setInv(event.target.value)}
+        />
+
+        <button>Add Product</button>
       </form>
     </section>
   );
 }
-export default BookForm;
+export default CreateProd;
