@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-function ProductDetail() {
+function ProductDetail({addToCart}) {
     const [product, setProduct] = useState([]);
 
     const { id } = useParams()
@@ -38,7 +38,7 @@ function ProductDetail() {
               <p>{description}</p>
             </div>
             <br></br>
-
+            <button onClick={() => addToCart(product)}>Add To Cart</button>
             <Link to="/products">Go Back!</Link>
           </div>
         </div>
