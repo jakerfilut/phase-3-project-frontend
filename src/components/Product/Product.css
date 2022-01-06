@@ -54,6 +54,13 @@
   margin-bottom: 24px;
   color: black;
 }
+
+.product__container-cardInfo h3 {
+  margin-bottom: 5px;
+  font-size: 24px;
+  color: rgb(10, 62, 152);
+}
+
 @media screen and (max-width: 1263px) {
   .product__container {
     display: grid;

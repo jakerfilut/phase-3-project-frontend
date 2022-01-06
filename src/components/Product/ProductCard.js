@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Product.css";
+import "./button.css";
 
 function ProductDetail({ prod, addToCart }) {
   const { id, name, department, description, unit_price, img_url, inventory } =
@@ -24,6 +25,7 @@ function ProductDetail({ prod, addToCart }) {
         <h3>${unit_price}.00</h3>
         <p>{inventory} left in Stock</p>
         <button
+          className="btn"
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
