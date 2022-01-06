@@ -13,6 +13,15 @@ import Create from "./components/Create/Create";
 
 function App() {
 
+  const [newProduct, setNewProduct] = useState([]);
+
+  // function handleNewProduct() {
+  //   const newProductArray = [...products, newProduct];
+  //   setProducts(newProductArray);
+  //   console.log(newProductArray);
+  // }
+
+
 
   const [products, setProducts] = useState([]);
 
@@ -46,22 +55,27 @@ function App() {
   };
 
 
+
   return (
     <div className="App">
       <Navbar />
       <Slideshow />
 
-      <Create />
+      <Department />
+      <Create handleFormData={handleFormData} />
+
 
 
       <Switch>
         <Route path="/products/:id" component={() => <ProductDetail addToCart={addToCart} />} />
+
 
         <Route path="/products" component={() => <Product 
           addToCart={addToCart}
           products={products}
           setProducts={setProducts}
         />} />
+
         <Route path="/cart" component={() => <Checkout />} />
         <Route path="/home" component={() => <Department />} />
       </Switch>

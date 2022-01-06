@@ -5,6 +5,7 @@ import ProductCard from "./ProductCard";
 
 const api_prod = "http://localhost:9292/products";
 
+
 function Product({ products, setProducts, addToCart }) {
   // const [products, setProducts] = useState([]);
 
@@ -37,6 +38,7 @@ function Product({ products, setProducts, addToCart }) {
   //     });
   // };
   // const mapProducts = products.map((prod) => {
+
     return (
 
       <Card.Group itemsPerRow={2}>
