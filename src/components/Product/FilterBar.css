@@ -1,0 +1,23 @@
+
+.filterBar {
+    background: #1194ff;
+    height: 80px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding-right: 25px;
+    
+  }
+
+.filterBar-container {
+    display: inline-flex
+}
+
+
+/* .icon {
+    position: absolute;
+  } */

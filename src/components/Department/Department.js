@@ -1,5 +1,6 @@
 import React from "react";
 import "./Department.css";
+import { Link } from 'react-router-dom';
 import { IconContext } from "react-icons/lib";
 import { RiFridgeFill } from "react-icons/ri";
 import { FaBath, FaToolbox } from "react-icons/fa";
@@ -53,18 +54,16 @@ function Department({ setDeptFilter }) {
     const Icon = depart[idx].img;
     const dept = dep.cat;
     return (
-      <span
-        onClick={() => setDeptFilter(dept)}
-        key={Math.random()}
-        className="department-container-card"
-      >
-        <div className="department-container-cardInfo">
-          <div className="icon">
-            <Icon />
+
+        <Link to="/products"  onClick={() => setDeptFilter(dept)} key={Math.random()} className="department-container-card">
+          <div className="department-container-cardInfo">
+            <div className="icon">
+              <Icon />
+            </div>
+            <h4>{dep.cat}</h4>
           </div>
-          <h4>{dep.cat}</h4>
-        </div>
-      </span>
+        </Link>
+
     );
   });
 
