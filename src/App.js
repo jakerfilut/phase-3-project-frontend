@@ -1,6 +1,6 @@
-
+import "./components/Department/Department.css"
 import "./App.css";
-import { react, useState } from "react";
+import { react, useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/NavBar/Navbar";
 import Product from "./components/Product/Product";
@@ -45,13 +45,13 @@ function App() {
       });
   };
 
-
+console.log(products)
   return (
     <div className="App">
       <Navbar />
       <Slideshow />
 
-      <Create />
+      {/* <Create /> */}
 
 
       <Switch>

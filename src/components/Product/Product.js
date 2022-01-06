@@ -38,8 +38,8 @@ function Product({ products, setProducts, addToCart }) {
   // };
   // const mapProducts = products.map((prod) => {
     return (
-
-      <Card.Group itemsPerRow={2}>
+<div>
+       <Card.Group>
         {products.map((product) => (
           <ProductCard 
             key={product.id}
@@ -49,8 +49,8 @@ function Product({ products, setProducts, addToCart }) {
           
         ))}
         
-      </Card.Group>
-
+       </Card.Group>
+    </div>
 
     //   <div key={Math.random()}>
     //     <img src={prod.img_url} alt="image" height="100" widtch="100" />
