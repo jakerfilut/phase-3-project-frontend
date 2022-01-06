@@ -1,23 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
-function ProductDetail({addToCart}) {
-    const [product, setProduct] = useState([]);
+function ProductDetail({ addToCart }) {
+  const [product, setProduct] = useState([]);
 
-    const { id } = useParams()
-    
-    useEffect(() => {
-        fetch(`http://localhost:9292/products/${id}`)
-          .then((r) => r.json())
-          .then((product) => {
-            setProduct(product);
-          });
-      }, [id]);
+  const { id } = useParams();
 
-      const { name, department, description, unit_price, img_url, inventory } = product;
+  useEffect(() => {
+    fetch(`http://localhost:9292/products/${id}`)
+      .then((r) => r.json())
+      .then((product) => {
+        setProduct(product);
+      });
+  }, [id]);
 
-
-
+  const { name, department, description, unit_price, img_url, inventory } =
+    product;
 
   return (
     <section>
@@ -27,13 +25,11 @@ function ProductDetail({addToCart}) {
         </div>
         <div>
           <h2>{name}</h2>
-          <p>
-            Department: {department}
-          </p>
+          <p>Department: {department}</p>
           <div>
             <p>${unit_price}</p>
             <p>We have {inventory} units in stock</p>
-            <div >
+            <div>
               <p>Description:</p>
               <p>{description}</p>
             </div>
