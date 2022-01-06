@@ -96,15 +96,11 @@ function App() {
     })
 
 
-
-
-
-
   return (
     <div className="App">
       <Navbar cart={cart} />
       <Slideshow />
-      <Department setDeptFilter={setDeptFilter} />
+      
 
       <Switch>
         <Route
@@ -115,7 +111,7 @@ function App() {
         <Route
           path="/products"
           component={() => (
-            <Product addToCart={addToCart} products={products} productsToDisplay={productsToDisplay} />
+            <Product addToCart={addToCart} products={products} productsToDisplay={productsToDisplay} setDeptFilter={setDeptFilter} />
           )}
         />
         <Route
@@ -128,7 +124,7 @@ function App() {
           component={() => <Checkout cart={cart} handleDelete={handleDelete} />}
         />
         <Route path="/orders" component={() => <Orders />} />
-        {/* <Route path="/home" component={() => <Department />} /> */}
+        <Route path="/home" component={() => <Department setDeptFilter={setDeptFilter} />} />
       </Switch>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Department.css";
+import { Link } from 'react-router-dom';
 import { IconContext } from "react-icons/lib";
 import { RiFridgeFill } from "react-icons/ri";
 import { FaBath, FaToolbox } from "react-icons/fa";
@@ -21,16 +22,16 @@ import { AiFillFormatPainter } from "react-icons/ai";
 function Department({setDeptFilter}) {
   const depart = [
     { cat: "Appliances", img: RiFridgeFill },
-    { cat: "Bath & faucets", img: FaBath },
-    { cat: "Blinds & Window", img: GiWindow },
+    { cat: "Bath & Faucets", img: FaBath },
+    { cat: "Blinds & Windows", img: GiWindow },
     { cat: "Building Material", img: GiWoodBeam },
     { cat: "Electrical", img: MdElectricalServices },
     { cat: "Tools", img: FaToolbox },
-    { cat: "Lighting & Ceiling fans", img: GiLightBulb },
-    { cat: "Outdoor living", img: MdOutlineOutdoorGrill },
+    { cat: "Lighting & Ceiling Fans", img: GiLightBulb },
+    { cat: "Outdoor Living", img: MdOutlineOutdoorGrill },
     { cat: "Paint", img: AiFillFormatPainter },
     { cat: "Plumbing", img: MdPlumbing },
-    { cat: "Heating and cooling", img: GiHeatHaze },
+    { cat: "Heating & Cooling", img: GiHeatHaze },
     { cat: "Kitchen", img: GiKitchenTap },
   ];
 
@@ -40,14 +41,14 @@ function Department({setDeptFilter}) {
     const Icon = depart[idx].img;
     const dept = dep.cat
     return (
-      <span key={Math.random()} className="department-container-card">
-        <div  className="department-container-cardInfo">
-          <div className="icon">
-            <Icon />
+        <Link to="/products"  onClick={() => setDeptFilter(dept)} key={Math.random()} className="department-container-card">
+          <div className="department-container-cardInfo">
+            <div className="icon">
+              <Icon />
+            </div>
+            <h4>{dep.cat}</h4>
           </div>
-          <h4 onClick={() => setDeptFilter(dept)}>{dep.cat}</h4>
-        </div>
-      </span>
+        </Link>
     );
   });
 
