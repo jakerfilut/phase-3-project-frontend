@@ -1,18 +1,23 @@
-import { React } from "react";
+import { React, useEffect } from "react";
 import CartCard from './CartCard'
-import { Card } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+
 
 function Checkout({ cart, handleDelete }) {
-  const mapCart = cart.map((item) => {
-    return (
-      <p>
-        {" "}
-        {item.product.name}
-        <button onClick={() => handleDelete(item)}>Remove From Cart</button>
-      </p>
-    );
-  });
 
+function makePurchase() {
+ 
+    if (cart.length == 0) {
+      console.log("I did not run");
+    } else {
+      fetch("http://localhost:9292/order_items", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        }
+      })
+    }
+}
 
   return (
 
@@ -25,7 +30,9 @@ function Checkout({ cart, handleDelete }) {
               <button onClick={() => handleDelete(item)}>Remove From Cart</button>
             </div>
         ))}
-        <button>Make Purchase</button>
+        <Link to="/orders">
+          <button onClick={makePurchase}>Make Purchase</button>
+        </Link>
     </div>
 
   );

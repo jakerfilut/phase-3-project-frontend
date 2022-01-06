@@ -2,7 +2,11 @@ import { React, useState, useEffect } from "react";
 import { Card } from "semantic-ui-react";
 import ProductCard from "./ProductCard";
 
-function Product({ products, addToCart }) {
+
+function Product({ products, addToCart, productsToDisplay }) {
+
+
+
   return (
     <div>
       <Card.Group>

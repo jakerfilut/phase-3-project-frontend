@@ -89,10 +89,23 @@ function App() {
       });
   };
 
+  const [deptFilter, setDeptFilter] = useState("");
+
+ const productsToDisplay = products
+    .filter((product) => {
+      return deptFilter === "" || product.department === deptFilter;
+    })
+
+
+
+
+
+
   return (
     <div className="App">
       <Navbar cart={cart} />
       <Slideshow />
+      <Department setDeptFilter={setDeptFilter} />
 
       <Switch>
         <Route
@@ -103,7 +116,7 @@ function App() {
         <Route
           path="/products"
           component={() => (
-            <Product addToCart={addToCart} products={products} />
+            <Product addToCart={addToCart} products={products} productsToDisplay={productsToDisplay} />
           )}
         />
         <Route
@@ -116,7 +129,7 @@ function App() {
           component={() => <Checkout cart={cart} handleDelete={handleDelete} />}
         />
         <Route path="/orders" component={() => <Orders />} />
-        <Route path="/home" component={() => <Department />} />
+        {/* <Route path="/home" component={() => <Department />} /> */}
       </Switch>
     </div>
   );
