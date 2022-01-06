@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function OrderCard({order}) {
+function CartCard({cart, handleDelete}) {
 
-      const { total_quantity, total_price, created_at } = order;
+      const { name, unit_price } = cart;
 
-    
+ 
 
 
   return (
@@ -13,14 +13,15 @@ function OrderCard({order}) {
       <div className='ui card'>
           <div className='card'>
         <div className='order-header'>
-            <h3>Order on {created_at.slice(0,10)}</h3>
+            
         </div>
-        <p>Items Purchased: {total_quantity}</p>
-        <p>Total Cost: {total_price}</p>
+        <p>Items Purchased: {name}</p>
+        <p>Total Cost: {unit_price}</p>
+        <button onClick={() => handleDelete(cart)}>Remove From Cart</button>
         </div>
       </div>
     </section>
   );
 }
 
-export default OrderCard;
+export default CartCard;

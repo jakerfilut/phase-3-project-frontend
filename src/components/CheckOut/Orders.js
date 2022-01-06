@@ -13,13 +13,15 @@ function Orders({}) {
   }, []);
 
   return (
-    <div className="order-container">
-      <h1>Order History</h1>
-      <Card.Group>
-        {orders.map((order) => (
-          <OrderCard key={order.id} order={order} />
-        ))}
-      </Card.Group>
+
+    <div className='shopping-cart'>
+        <h1>Order History</h1>
+        <Card.Group>
+            {orders.map((order) => (
+                <OrderCard key={order.id} order={order} />
+            ))}
+        </Card.Group>
+
     </div>
   );
 }
