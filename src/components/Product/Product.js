@@ -2,67 +2,29 @@ import { React, useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import "./Product.css";
 import './FilterBar.css';
-import { Link } from 'react-router-dom';
-import { IconContext } from "react-icons/lib";
-import { RiFridgeFill } from "react-icons/ri";
-import { FaBath, FaToolbox } from "react-icons/fa";
-import {
-  GiWindow,
-  GiWoodBeam,
-  GiLightBulb,
-  GiGardeningShears,
-  GiHeatHaze,
-  GiKitchenTap,
-} from "react-icons/gi";
-import {
-  MdElectricalServices,
-  MdOutlineOutdoorGrill,
-  MdPlumbing,
-} from "react-icons/md";
-import { AiFillFormatPainter } from "react-icons/ai";
+
 
 function Product({ products, addToCart, productsToDisplay, setDeptFilter }) {
-  const depart = [
-    { cat: "Appliances", img: RiFridgeFill },
-    { cat: "Bath & Faucets", img: FaBath },
-    { cat: "Blinds & Windows", img: GiWindow },
-    { cat: "Building Material", img: GiWoodBeam },
-    { cat: "Electrical", img: MdElectricalServices },
-    { cat: "Tools", img: FaToolbox },
-    { cat: "Lighting & Ceiling Fans", img: GiLightBulb },
-    { cat: "Outdoor Living", img: MdOutlineOutdoorGrill },
-    { cat: "Paint", img: AiFillFormatPainter },
-    { cat: "Plumbing", img: MdPlumbing },
-    { cat: "Heating & Cooling", img: GiHeatHaze },
-    { cat: "Kitchen", img: GiKitchenTap },
-  ];
 
-  const departmentDisplay = depart.map((dep, idx) => {
-    const Icon = depart[idx].img;
-    const dept = dep.cat
-    return (
-        <Link to="/products"  onClick={() => setDeptFilter(dept)} key={Math.random()} className="filterBar">
-          <div className="filterBar-container">
-            <div className="icon">
-              <Icon />
-            </div>
-            <h4>{dep.cat}</h4>
-          </div>
-        </Link>
-    );
-  });
 
   return (
   <>
-    <IconContext.Provider value={{ color: "#fff", size: 20 }}>
-      <div id="filter" className="filter-section">
-        <div className="filter-wrapper">
-          <h1 className="filter-heading"></h1>
-          <div className="filter-container">{departmentDisplay}</div>
-        </div>
-      </div>
-    </IconContext.Provider>
-
+    <nav>
+      <ul>
+        <li onClick={() => setDeptFilter("Appliances")}>Appliances</li>
+        <li onClick={() => setDeptFilter("Bath & Faucets")}>Bath & Faucets</li>
+        <li onClick={() => setDeptFilter("Blinds & Windows")}>Blinds & Windows</li>
+        <li onClick={() => setDeptFilter("Building Material")}>Building Material</li>
+        <li onClick={() => setDeptFilter("Electrical")}>Electrical</li>
+        <li onClick={() => setDeptFilter("Tools")}>Tools</li>
+        <li onClick={() => setDeptFilter("Lighting & Ceiling Fans")}>Lighting & Ceiling Fans</li>
+        <li onClick={() => setDeptFilter("Outdoor Living")}>Outdoor Living</li>
+        <li onClick={() => setDeptFilter("Paint")}>Paint</li>
+        <li onClick={() => setDeptFilter("Plumbing")}>Plumbing</li>
+        <li onClick={() => setDeptFilter("Heating & Cooling")}>Heating & Cooling</li>
+        <li onClick={() => setDeptFilter("Kitchen")}>Kitchen</li>
+      </ul>
+    </nav>
 
     <div id="product" className="product__section">
       <div className="product__wrapper">
