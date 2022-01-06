@@ -1,38 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "./Product.css";
 
-function ProductDetail({product, addToCart}) {
+function ProductDetail({ prod, addToCart }) {
+  const { id, name, department, description, unit_price, img_url, inventory } =
+    prod;
 
-      const { id, name, department, description, unit_price, img_url, inventory } = product;
-
-      const path = `/products/${id}`
-
+  const path = `/products/${id}`;
 
   return (
-    <section>
-      <div class='ui card'>
-      <Link to={path}>
-          <img class="ui small image" src={img_url} alt={name} />
-        </Link>
-        <div >
-          <Link to={path}>
-            <h2>{name}</h2>
-          </Link>
-          <p>
-            Department: {department}
-          </p>
-          <div>
-            <p>${unit_price}</p>
-            <p>We have {inventory} units in stock</p>
-            <div >
-              {/* <p>Description:</p>
-              <p>{description}</p> */}
-            </div>
-            <button onClick={() => addToCart(product)}>Add To Cart</button>
-          </div>
+    <Link to={path} className="product__container-card">
+      <div className="product__container-cardInfo">
+        <div className="icon">
+          <img
+            src={img_url}
+            alt={name}
+            height="300"
+            length="300"
+            className="product__img"
+          />
         </div>
+        <h4>{name}</h4>
+        <h3>${unit_price}.00</h3>
+        <p>{inventory} left in Stock</p>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            addToCart(prod);
+          }}
+        >
+          Add to Cart
+        </button>
       </div>
-    </section>
+    </Link>
   );
 }
 
