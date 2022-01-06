@@ -10,9 +10,9 @@ function ProductDetail({product, addToCart}) {
 
   return (
     <section>
-      <div>
+      <div class='ui card'>
       <Link to={path}>
-          <img src={img_url} alt={name} />
+          <img class="ui small image" src={img_url} alt={name} />
         </Link>
         <div >
           <Link to={path}>
@@ -25,8 +25,8 @@ function ProductDetail({product, addToCart}) {
             <p>${unit_price}</p>
             <p>We have {inventory} units in stock</p>
             <div >
-              <p>Description:</p>
-              <p>{description}</p>
+              {/* <p>Description:</p>
+              <p>{description}</p> */}
             </div>
             <button onClick={() => addToCart(product)}>Add To Cart</button>
           </div>
