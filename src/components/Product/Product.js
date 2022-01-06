@@ -11,7 +11,7 @@ function Product({ products, addToCart, productsToDisplay }) {
     <div id="product" className="product__section">
       <div className="product__wrapper">
         <div className="product__container">
-          {products.map((prod) => (
+          {productsToDisplay.map((prod) => (
             <ProductCard key={prod.id} prod={prod} addToCart={addToCart} />
           ))}
         </div>

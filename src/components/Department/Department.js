@@ -38,13 +38,14 @@ function Department({setDeptFilter}) {
 
   const departmentDisplay = depart.map((dep, idx) => {
     const Icon = depart[idx].img;
+    const dept = dep.cat
     return (
       <span key={Math.random()} className="department-container-card">
-        <div onClick={() => setDeptFilter("Appliances")} className="department-container-cardInfo">
+        <div  className="department-container-cardInfo">
           <div className="icon">
             <Icon />
           </div>
-          <h4 >{dep.cat}</h4>
+          <h4 onClick={() => setDeptFilter(dept)}>{dep.cat}</h4>
         </div>
       </span>
     );
@@ -54,7 +55,7 @@ function Department({setDeptFilter}) {
     <IconContext.Provider value={{ color: "#fff", size: 30 }}>
       <div id="department" className="department-section">
         <div className="department-wrapper">
-          <h1 className="department-heading">Shop by Category</h1>
+          <h1 className="department-heading"></h1>
           <div className="department-container">{departmentDisplay}</div>
         </div>
       </div>
