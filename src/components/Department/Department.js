@@ -18,7 +18,7 @@ import {
 } from "react-icons/md";
 import { AiFillFormatPainter } from "react-icons/ai";
 
-function Department() {
+function Department({setDeptFilter}) {
   const depart = [
     { cat: "Appliances", img: RiFridgeFill },
     { cat: "Bath & faucets", img: FaBath },
@@ -34,15 +34,17 @@ function Department() {
     { cat: "Kitchen", img: GiKitchenTap },
   ];
 
+
+
   const departmentDisplay = depart.map((dep, idx) => {
     const Icon = depart[idx].img;
     return (
       <span key={Math.random()} className="department-container-card">
-        <div className="department-container-cardInfo">
+        <div onClick={() => setDeptFilter("Appliances")} className="department-container-cardInfo">
           <div className="icon">
             <Icon />
           </div>
-          <h4>{dep.cat}</h4>
+          <h4 >{dep.cat}</h4>
         </div>
       </span>
     );
