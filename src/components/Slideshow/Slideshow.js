@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import "./Slideshow.css";
 import { Link } from "react-router-dom";
 import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
@@ -10,7 +9,7 @@ const Slideshow = ({ products }) => {
   const length = products.length;
 
   useEffect(() => {
-    setTimeout(() => setToggle((prevToggle) => !prevToggle), 3000);
+    setTimeout(() => setToggle((prevToggle) => !prevToggle), 2500);
     return () => nextSlide();
   }, [toggle]);
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./productDetail.css";
 import "./button.css";
 
@@ -14,7 +14,7 @@ function ProductDetail({ addToCart }) {
       .then((product) => {
         setProduct(product);
       });
-  }, [id]);
+  }, []);
 
   const { name, department, description, unit_price, img_url, inventory } =
     product;

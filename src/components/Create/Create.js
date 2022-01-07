@@ -20,7 +20,6 @@ function CreateProd({ handleNewProduct }) {
     };
 
     handleNewProduct(formData);
-
   }
   return (
     <section className="container">
@@ -51,7 +50,7 @@ function CreateProd({ handleNewProduct }) {
           </option>
           <option value="Appliances">Appliances</option>
           <option value="Bath & Faucets">Bath & Faucets</option>
-          <option value="Blinds & Window">Blinds & Window</option>
+          <option value="Blinds & Windows">Blinds & Windows</option>
           <option value="Building Material">Building Material</option>
           <option value="Electrical">Electrical</option>
           <option value="Heating & Cooling">Heating & Cooling</option>

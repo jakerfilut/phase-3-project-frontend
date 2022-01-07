@@ -27,12 +27,11 @@ function Navbar({ cart, setDeptFilter }) {
                 Home
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item" onClick={() => setDeptFilter("")}>
               <Link
                 to="/products"
                 className="nav-links"
                 onClick={closeMobileMenu}
-                onClick={() => setDeptFilter("")}
               >
                 Product
               </Link>

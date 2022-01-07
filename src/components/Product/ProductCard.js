@@ -4,8 +4,7 @@ import "./Product.css";
 import "./button.css";
 
 function ProductDetail({ prod, addToCart }) {
-  const { id, name, department, description, unit_price, img_url, inventory } =
-    prod;
+  const { id, name, unit_price, img_url, inventory } = prod;
 
   const path = `/products/${id}`;
 

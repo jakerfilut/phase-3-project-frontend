@@ -15,6 +15,7 @@ function App() {
   const [cart, setCart] = useState([]);
   const [deletes, setDeletes] = useState(false);
   const [updateCart, setUpdateCart] = useState(false);
+
   useEffect(() => {
     fetch("http://localhost:9292/order_items")
       .then((res) => res.json())
@@ -62,7 +63,7 @@ function App() {
     fetch("http://localhost:9292/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
-  }, [newProd]);
+  }, [newProd, updateCart]);
 
   const addToCart = (prod) => {
     fetch(`http://localhost:9292/products/${prod.id}`, {
@@ -72,20 +73,8 @@ function App() {
         Accept: "application/json",
       },
       body: JSON.stringify({ ...prod, inventory: (prod.inventory -= 1) }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(
-          products.map((p) => {
-            if (p.id === data.id) {
-              return data;
-            } else {
-              return p;
-            }
-          })
-        );
-        setUpdateCart(!updateCart);
-      });
+    });
+    setUpdateCart(!updateCart);
   };
 
   const [deptFilter, setDeptFilter] = useState("");
@@ -109,7 +98,6 @@ function App() {
           component={() => (
             <Product
               addToCart={addToCart}
-              products={products}
               productsToDisplay={productsToDisplay}
               setDeptFilter={setDeptFilter}
             />
