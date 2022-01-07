@@ -36,6 +36,16 @@
   user-select: none;
 }
 
+.left-arrow:hover {
+  transition-duration: 0.3s;
+  transform: scale(1.18);
+}
+
+.right-arrow:hover {
+  transition-duration: 0.3s;
+  transform: scale(1.18);
+}
+
 .slide {
   opacity: 0;
   transition-duration: 1s ease;

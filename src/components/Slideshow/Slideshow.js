@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import "./Slideshow.css";
 import { Link } from "react-router-dom";
+import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
 
 const Slideshow = ({ products }) => {
   const [img, setImg] = useState(0);
@@ -29,8 +30,8 @@ const Slideshow = ({ products }) => {
 
   return (
     <section className="slider">
-      <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
-      <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
+      <AiOutlineDoubleLeft className="left-arrow" onClick={prevSlide} />
+      <AiOutlineDoubleRight className="right-arrow" onClick={nextSlide} />
       {products.map((prod, index) => {
         const path = `/products/${prod.id}`;
         return (
