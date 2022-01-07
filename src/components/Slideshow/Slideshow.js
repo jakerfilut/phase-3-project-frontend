@@ -14,8 +14,6 @@ const Slideshow = ({ products }) => {
     return () => nextSlide();
   }, [toggle]);
 
-  console.log(toggle);
-
   const nextSlide = () => {
     setImg(img === length - 1 ? 0 : img + 1);
   };
@@ -35,7 +33,7 @@ const Slideshow = ({ products }) => {
       {products.map((prod, index) => {
         const path = `/products/${prod.id}`;
         return (
-          <Link to={path}>
+          <Link to={path} key={prod.id}>
             <div
               className={index === img ? "slide active" : "slide"}
               key={index}
