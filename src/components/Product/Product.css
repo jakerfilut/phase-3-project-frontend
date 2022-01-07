@@ -70,6 +70,11 @@
     align-items: center;
   }
 }
+/* @media screen and (max-width: 1136px) {
+  .product__section {
+    margin-top: 0px;
+  }
+} */
 
 @media screen and (max-width: 960px) {
   .product__container {
@@ -78,6 +83,12 @@
     grid-template-columns: auto auto;
     justify-content: center;
     align-items: center;
+  }
+}
+
+@media screen and (max-width: 753px) {
+  .product__section {
+    margin-top: 90px;
   }
 }
 

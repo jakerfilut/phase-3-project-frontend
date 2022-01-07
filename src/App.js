@@ -5,11 +5,11 @@ import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/NavBar/Navbar";
 import Product from "./components/Product/Product";
 import ProductDetail from "./components/Product/ProductDetail";
-import Slideshow from "./components/Slideshow/Slideshow";
 import Department from "./components/Department/Department";
 import Checkout from "./components/CheckOut/Checkout";
 import Create from "./components/Create/Create";
 import Orders from "./components/CheckOut/Orders";
+import Slideshow from "./components/Slideshow/Slideshow";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -96,8 +96,10 @@ function App() {
 
   return (
     <div className="App">
+
       <Navbar cart={cart} setDeptFilter={setDeptFilter} />
       <Slideshow />
+
 
       <Switch>
         <Route
@@ -128,7 +130,12 @@ function App() {
         <Route path="/orders" component={() => <Orders />} />
         <Route
           path="/home"
-          component={() => <Department setDeptFilter={setDeptFilter} />}
+          component={() => (
+            <>
+              <Slideshow products={products} />
+              <Department setDeptFilter={setDeptFilter} />
+            </>
+          )}
         />
       </Switch>
     </div>
