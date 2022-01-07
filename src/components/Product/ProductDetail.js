@@ -16,8 +16,20 @@ function ProductDetail({ addToCart }) {
       });
   }, [id]);
 
-  const { name, department, description, unit_price, img_url, inventory } =
+  const { name, department, description, unit_price, img_url, inventory, reviews } =
     product;
+
+// console.log(product.reviews)
+
+  // if (product.reviews) {
+  // return null
+  // } else {
+  // return product.reviews.map(r=>r.comment)
+  // }
+
+
+
+
 
   return (
     <div className="detail__conatiner-card">
@@ -38,6 +50,11 @@ function ProductDetail({ addToCart }) {
             <p className="detail__inventory">
               We have {inventory} units in stock
             </p>
+          <p>
+          
+            </p>
+          <p></p>
+
           </div>
         </div>
       </div>
