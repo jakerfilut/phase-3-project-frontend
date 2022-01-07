@@ -101,3 +101,9 @@
     align-items: center;
   }
 }
+
+@media screen and (max-width: 753px) {
+  .product__section {
+    margin-top: 90px;
+  }
+}

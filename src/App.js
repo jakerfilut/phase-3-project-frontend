@@ -96,7 +96,10 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar cart={cart} />
+
+      <Navbar cart={cart} setDeptFilter={setDeptFilter} />
+      <Slideshow />
+
 
       <Switch>
         <Route

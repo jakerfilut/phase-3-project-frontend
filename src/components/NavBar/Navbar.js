@@ -5,7 +5,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaTools, FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-function Navbar({ cart }) {
+function Navbar({ cart, setDeptFilter }) {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -32,6 +32,7 @@ function Navbar({ cart }) {
                 to="/products"
                 className="nav-links"
                 onClick={closeMobileMenu}
+                onClick={() => setDeptFilter("")}
               >
                 Product
               </Link>
