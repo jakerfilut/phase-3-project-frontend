@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import "./Slideshow.css";
 import { Link } from "react-router-dom";
-import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
+import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai"
 
 const Slideshow = ({ products }) => {
   const [img, setImg] = useState(0);
@@ -13,8 +13,6 @@ const Slideshow = ({ products }) => {
     setTimeout(() => setToggle((prevToggle) => !prevToggle), 3000);
     return () => nextSlide();
   }, [toggle]);
-
-  console.log(toggle);
 
   const nextSlide = () => {
     setImg(img === length - 1 ? 0 : img + 1);
@@ -35,7 +33,7 @@ const Slideshow = ({ products }) => {
       {products.map((prod, index) => {
         const path = `/products/${prod.id}`;
         return (
-          <Link to={path}>
+          <Link to={path} key={prod.id}>
             <div
               className={index === img ? "slide active" : "slide"}
               key={index}
