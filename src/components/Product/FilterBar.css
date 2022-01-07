@@ -1,71 +1,64 @@
-
-
 nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    background:#1194ff;
-    position: fixed;
-    z-index: 999;
-    padding: 5px;
-    overflow: hidden;
-    width: 100%;
-    margin-top: 0px;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  background: #1194ff;
+  position: fixed;
+  z-index: 2;
+  padding: 5px;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 0px;
 }
 
 nav ul li {
-    color: white;
-    cursor: pointer;
+  color: white;
+  cursor: pointer;
 }
 
 nav ul li:hover {
-    transform: scale(1.1);
-    transition: 0.3s;
+  transform: scale(1.1);
+  transition: 0.3s;
 }
 
-
 @media only screen and (max-width: 1136px) {
+  nav ul {
+    display: grid;
+    grid-gap: 5px 0px;
+    grid-template-columns: auto auto auto auto auto auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav ul li {
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  nav ul li:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+
+  @media only screen and (max-width: 753px) {
     nav ul {
-       display: grid;
-        grid-gap: 5px 0px;
-        grid-template-columns: auto auto auto auto auto auto;
-        justify-content: center;
-        align-items: center; 
+      display: grid;
+      grid-gap: 5px 0px;
+      grid-template-columns: auto auto auto;
+      justify-content: center;
+      align-items: center;
     }
 
     nav ul li {
-        color: white;
-        cursor: pointer;
-        padding: 10px;
+      color: white;
+      cursor: pointer;
+      padding: 10px;
     }
-    
+
     nav ul li:hover {
-        transform: scale(1.1);
-        transition: 0.3s;
+      transform: scale(1.1);
+      transition: 0.3s;
     }
-
-    
-    @media only screen and (max-width: 753px) {
-        nav ul {
-           display: grid;
-            grid-gap: 5px 0px;
-            grid-template-columns: auto auto auto;
-            justify-content: center;
-            align-items: center; 
-        }
-
-        nav ul li {
-            color: white;
-            cursor: pointer;
-            padding: 10px;
-        }
-        
-        nav ul li:hover {
-            transform: scale(1.1);
-            transition: 0.3s;
-        }
-    }
+  }
 }
-
-
-
