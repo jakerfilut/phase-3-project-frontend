@@ -16,19 +16,10 @@ function ProductDetail({ addToCart }) {
       });
   }, [id]);
 
-  const { name, department, description, unit_price, img_url, inventory, reviews } =
-    product;
+  const { name, department, description, unit_price, img_url, inventory, reviews } = product;
+   
 
-// console.log(product.reviews)
-
-  // if (product.reviews) {
-  // return null
-  // } else {
-  // return product.reviews.map(r=>r.comment)
-  // }
-
-
-
+  // console.log(reviews.map(r=>r.comment))
 
 
   return (
@@ -50,10 +41,8 @@ function ProductDetail({ addToCart }) {
             <p className="detail__inventory">
               We have {inventory} units in stock
             </p>
-          <p>
           
-            </p>
-          <p></p>
+          {/* <p>{reviews.map(r=>r.comment)}</p> */}
 
           </div>
         </div>
