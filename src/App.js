@@ -96,7 +96,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar cart={cart} />
+      <Navbar setDeptFilter={setDeptFilter} cart={cart} />
 
       <Switch>
         <Route
@@ -122,7 +122,14 @@ function App() {
 
         <Route
           path="/cart"
-          component={() => <Checkout cart={cart} handleDelete={handleDelete} />}
+          component={() => (
+            <Checkout
+              updateCart={updateCart}
+              setUpdateCart={setUpdateCart}
+              cart={cart}
+              handleDelete={handleDelete}
+            />
+          )}
         />
         <Route path="/orders" component={() => <Orders />} />
         <Route

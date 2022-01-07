@@ -3,7 +3,7 @@ import CartCard from "./CartCard";
 import { Link } from "react-router-dom";
 // import "./components/product/button.css";
 
-function Checkout({ cart, handleDelete }) {
+function Checkout({ cart, handleDelete, setUpdateCart, updateCart }) {
   function makePurchase() {
     if (cart.length == 0) {
       console.log("I did not run");
@@ -14,6 +14,7 @@ function Checkout({ cart, handleDelete }) {
           "Content-Type": "application/json",
         },
       });
+      setUpdateCart(!updateCart);
     }
   }
 
